@@ -1,7 +1,5 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-using NugetLib;
+﻿using System.Threading.Tasks;
+using LibC;
 
 namespace Consumer
 {
@@ -9,7 +7,8 @@ namespace Consumer
     {
         public static async Task Main(string[] args)
         {
-            Root.Test();
+            ClassLibC test = new ClassLibC();
+            test.Exec();
         }
     }
 }

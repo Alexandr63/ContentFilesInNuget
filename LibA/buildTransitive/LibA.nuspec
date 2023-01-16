@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>$PackageId$</id>
+    <version>$PackageVersion$</version>
+    <authors>$PackageAuthors$</authors>
+    <description>$PackageDescription$</description>
+    <dependencies>
+      <group targetFramework="net6.0" />
+    </dependencies>
+  </metadata>
+
+  <files>
+    <file src="LibA.props" target="buildTransitive/" />
+
+    <file src="fonts/**" target="buildTransitive/" />
+
+    <file src="../bin/Debug/net6.0/LibA.dll" target="lib/net6.0/LibA.dll" />
+  </files>
+</package>

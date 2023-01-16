@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.1.0</Version>
+    <Authors>Authors list</Authors>
+    <Description>Project description</Description>
+    <NuspecFile>buildTransitive\$(MSBuildProjectName).nuspec</NuspecFile>
+    <NuspecProperties>$(NuspecProperties);PackageId=$(MSBuildProjectName)</NuspecProperties>
+    <NuspecProperties>$(NuspecProperties);PackageVersion=$(Version)</NuspecProperties>
+    <NuspecProperties>$(NuspecProperties);PackageAuthors=$(Authors)</NuspecProperties>
+    <NuspecProperties>$(NuspecProperties);PackageDescription=$(Description)</NuspecProperties>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="buildTransitive\fonts\ArialMT.ttf" />
+    <None Remove="buildTransitive\fonts\cour.ttf" />
+    <None Remove="buildTransitive\fonts\times.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="buildTransitive\fonts\cour.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="buildTransitive\fonts\times.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <Import Project="buildTransitive\LibA.props" />
+</Project>

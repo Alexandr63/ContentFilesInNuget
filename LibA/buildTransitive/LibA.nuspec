@@ -15,6 +15,6 @@
 
     <file src="fonts/**" target="buildTransitive/" />
 
-    <file src="../bin/Debug/net6.0/LibA.dll" target="lib/net6.0/LibA.dll" />
+    <file src="$PackageBuildOutputTargetFolder$LibA.dll" target="lib/net6.0/LibA.dll" />
   </files>
 </package>

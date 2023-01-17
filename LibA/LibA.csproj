@@ -5,30 +5,29 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.1.0</Version>
+    <Version>1.1.3</Version>
     <Authors>Authors list</Authors>
     <Description>Project description</Description>
     <NuspecFile>buildTransitive\$(MSBuildProjectName).nuspec</NuspecFile>
-    <NuspecProperties>$(NuspecProperties);PackageId=$(MSBuildProjectName)</NuspecProperties>
-    <NuspecProperties>$(NuspecProperties);PackageVersion=$(Version)</NuspecProperties>
-    <NuspecProperties>$(NuspecProperties);PackageAuthors=$(Authors)</NuspecProperties>
-    <NuspecProperties>$(NuspecProperties);PackageDescription=$(Description)</NuspecProperties>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="buildTransitive\fonts\ArialMT.ttf" />
-    <None Remove="buildTransitive\fonts\cour.ttf" />
-    <None Remove="buildTransitive\fonts\times.ttf" />
-  </ItemGroup>
+  <Target Name="NuspecProperties" AfterTargets="Build">
+    <PropertyGroup>
+      <NuspecProperties>$(NuspecProperties);PackageId=$(MSBuildProjectName)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);PackageVersion=$(Version)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);PackageAuthors=$(Authors)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);PackageDescription=$(Description)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);PackageBuildOutputTargetFolder=$(MSBuildThisFileDirectory)$(OutputPath)</NuspecProperties>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="buildTransitive\fonts\cour.ttf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
-    <Content Include="buildTransitive\fonts\times.ttf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+    <Message Importance="High" Text="-------------Variables----------------" />
+    <Message Importance="High" Text="MSBuildProjectName = $(MSBuildProjectName)" />
+    <Message Importance="High" Text="MSBuildThisFileDirectory = $(MSBuildThisFileDirectory)" />
+    <Message Importance="High" Text="OutputPath = $(OutputPath)" />
+    <Message Importance="High" Text="NuspecProperties = $(NuspecProperties)" />
+    <Message Importance="High" Text="-------------Variables----------------" />
+  </Target>
 
-  <Import Project="buildTransitive\LibA.props" />
+  <Import Project="buildTransitive/LibA.props" />
+
 </Project>

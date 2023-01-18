@@ -11,10 +11,10 @@
   </metadata>
 
   <files>
-    <file src="LibA.props" target="buildTransitive/" />
+    <file src="LibA.props" target="buildTransitive" />
 
-    <file src="fonts/**" target="buildTransitive/" />
+    <file src="fonts\**" target="buildTransitive\fonts" />
 
-    <file src="$PackageBuildOutputTargetFolder$LibA.dll" target="lib/net6.0/LibA.dll" />
+    <file src="$PackageTargetPath$" target="lib/net6.0/LibA.dll" />
   </files>
 </package>

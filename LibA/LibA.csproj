@@ -5,29 +5,28 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.1.3</Version>
+    <Version>1.1.5</Version>
     <Authors>Authors list</Authors>
     <Description>Project description</Description>
     <NuspecFile>buildTransitive\$(MSBuildProjectName).nuspec</NuspecFile>
+    <NuspecProperties>$(NuspecProperties);PackageId=$(MSBuildProjectName)</NuspecProperties>
+    <NuspecProperties>$(NuspecProperties);PackageAuthors=$(Authors)</NuspecProperties>
+    <NuspecProperties>$(NuspecProperties);PackageDescription=$(Description)</NuspecProperties>
   </PropertyGroup>
 
   <Target Name="NuspecProperties" AfterTargets="Build">
     <PropertyGroup>
-      <NuspecProperties>$(NuspecProperties);PackageId=$(MSBuildProjectName)</NuspecProperties>
       <NuspecProperties>$(NuspecProperties);PackageVersion=$(Version)</NuspecProperties>
-      <NuspecProperties>$(NuspecProperties);PackageAuthors=$(Authors)</NuspecProperties>
-      <NuspecProperties>$(NuspecProperties);PackageDescription=$(Description)</NuspecProperties>
-      <NuspecProperties>$(NuspecProperties);PackageBuildOutputTargetFolder=$(MSBuildThisFileDirectory)$(OutputPath)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);PackageTargetPath=$(TargetPath)</NuspecProperties>
     </PropertyGroup>
 
     <Message Importance="High" Text="-------------Variables----------------" />
     <Message Importance="High" Text="MSBuildProjectName = $(MSBuildProjectName)" />
-    <Message Importance="High" Text="MSBuildThisFileDirectory = $(MSBuildThisFileDirectory)" />
-    <Message Importance="High" Text="OutputPath = $(OutputPath)" />
+    <Message Importance="High" Text="TargetPath = $(TargetPath)" />
     <Message Importance="High" Text="NuspecProperties = $(NuspecProperties)" />
     <Message Importance="High" Text="-------------Variables----------------" />
   </Target>
 
-  <Import Project="buildTransitive/LibA.props" />
+  <Import Project="buildTransitive\LibA.props" />
 
 </Project>

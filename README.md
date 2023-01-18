@@ -12,4 +12,4 @@ Change project file:
 	* Add regerences on '.props' and '.nuspec' files.
 	* Add NuspecProperties with variables for nuspec file.
 
-**Note**: use '\' instead of '/' in path https://github.com/microsoft/dotnet/issues/1208.  
+**Note**: use '\\' instead of '/' in path https://github.com/microsoft/dotnet/issues/1208.  

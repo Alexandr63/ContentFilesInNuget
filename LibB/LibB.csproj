@@ -4,12 +4,12 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
-    <Version>1.1.5</Version>
+    <Version>1.1.8</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LibA" Version="1.1.5" />
+    <PackageReference Include="LibA" Version="1.1.8" />
   </ItemGroup>
 
 </Project>

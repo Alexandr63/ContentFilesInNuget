@@ -5,7 +5,8 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.1.5</Version>
+    <!--<Version>1.1.8</Version>-->
+    <Version>$(PkgVersion)</Version>
     <Authors>Authors list</Authors>
     <Description>Project description</Description>
     <NuspecFile>buildTransitive\$(MSBuildProjectName).nuspec</NuspecFile>

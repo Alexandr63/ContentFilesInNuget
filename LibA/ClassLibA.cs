@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 
 namespace LibA
 {
     public class ClassLibA
     {
-        public virtual void Exec()
+        public virtual List<string> Exec()
         {
             Console.WriteLine($"ClassLibA.Exec {Assembly.GetAssembly(typeof(ClassLibA)).GetName()}");
 
@@ -21,7 +23,11 @@ namespace LibA
                 {
                     Console.WriteLine($"\t{file}");
                 }
+
+                return Directory.GetFiles(dir).ToList();
             }
+
+            return new List<string>();
         }
     }
 }

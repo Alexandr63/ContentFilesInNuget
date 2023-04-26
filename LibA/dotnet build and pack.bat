@@ -1,1 +1,1 @@
-dotnet build ../ContentFilesInNuget.sln -c Release -p:PkgVersion=1.1.8 --no-restore --output bin/nupkgs
+dotnet pack LibA.csproj -p:PackageVersion=1.2.12 -p:Version=1.2.12.0

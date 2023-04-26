@@ -4,23 +4,24 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <!--<Version>1.1.8</Version>-->
-    <Version>$(PkgVersion)</Version>
-    <Authors>Authors list</Authors>
-    <Description>Project description</Description>
+    <Version>1.0.0</Version>
+    <Authors>Authors list (LibA)</Authors>
+    <Description>Project LibA description</Description>
+
     <NuspecFile>buildTransitive\$(MSBuildProjectName).nuspec</NuspecFile>
-    <NuspecProperties>$(NuspecProperties);PackageId=$(MSBuildProjectName)</NuspecProperties>
-    <NuspecProperties>$(NuspecProperties);PackageAuthors=$(Authors)</NuspecProperties>
-    <NuspecProperties>$(NuspecProperties);PackageDescription=$(Description)</NuspecProperties>
   </PropertyGroup>
 
   <Target Name="NuspecProperties" AfterTargets="Build">
     <PropertyGroup>
       <NuspecProperties>$(NuspecProperties);PackageVersion=$(Version)</NuspecProperties>
       <NuspecProperties>$(NuspecProperties);PackageTargetPath=$(TargetPath)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);PackageAuthors=$(Authors)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);PackageDescription=$(Description)</NuspecProperties>
+      <NuspecProperties>$(NuspecProperties);PackageId=$(MSBuildProjectName)</NuspecProperties>
     </PropertyGroup>
+  </Target>
 
+  <Target Name="BuildLogs" AfterTargets="Build">
     <Message Importance="High" Text="-------------Variables----------------" />
     <Message Importance="High" Text="MSBuildProjectName = $(MSBuildProjectName)" />
     <Message Importance="High" Text="TargetPath = $(TargetPath)" />
